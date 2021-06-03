@@ -22,9 +22,7 @@ Tipo | Doce |Até 5kg |Acima de 5kg
 
 * Por fim, teremos uma série de condicionais compostas encaixadas para que a saída de dados seja **específica** para o cliente, mostrando apenas o que comprou, os quilos comprados, o valor por doce e o valor final.
 
-  ##### Algoritmo:
-
-  ##### Programa:
+  #### Programa:
 
   ```c
   #include <stdio.h>
@@ -187,7 +185,118 @@ Tipo | Doce |Até 5kg |Acima de 5kg
   	return 0;
   }
   ```
-
   
+  #### Algoritmo
 
+  ```
+  Início
+  	var
+  		caractere: addTipo;
+  		inteiro: tipo, contador; 
+  		real: quilosTrufa, quilosTorta, quilosBolo, precoTrufa, precoTorta, precoBolo, quilosScan, precoFinal;
+  	para contador ←1 até 25 passo 1 faça
+  	início
+  		precoTrufa ← 0.0;
+  		precoTorta ← 0.0;
+  		precoBolo ← 0.0;
+  		quilosTrufa ← 0.0;
+  		quilosTorta ← 0.0;
+  		quilosBolo ← 0.0;
+  		repita
+  			leia(tipo);
+  			escolha(tipo)
+  				caso 1: 
+  					leia(quilosScan);
+  					quilosTrufa ← quilosScan+quilosTrufa;
+  					se quilosTrufa<=5.0 então
+  					início
+  						precoTrufa ← quilosTrufa * 25.0;
+  					fim
+  					senão
+  						precoTrufa←quilosTrufa * 22.0;
+  					fim se;
+  					leia(addTipo);
+  				caso 2: 
+  					leia(quilosScan);
+  					quilosTorta←quilosScan+quilosTorta;
+  					se quilosTorta<=5.0 então
+  					início
+  						precoTorta ← quilosTorta * 25.0;
+  					fim
+  					senão
+  						precoTorta←quilosTorta * 22.0;
+  					fim se;
+  					leia(addTipo)
+  				caso 3: 
+  					leia(quilosScan);
+  					quilosBolo←quilosScan+quilosBolo;
+  					se quilosBolo<=5.0 então
+  					início
+  						precoBolo ← quilosBolo * 25.0;
+  					fim
+  					senão
+  						precoBolo←quilosBolo * 22.0;
+  					fim se;
+  					leia(addTipo)
+  				caso contrário:
+  					escreva(“Digite um tipo de doce válido”);
+  					addTipo ← ‘S’;
+  			fim escolha;
+  		enquanto addTipo = ‘s’ OU ‘S’;
+  		precoFinal = precoTrufa + precoTorta + precoBolo;
+  		se precoTrufa > 0.0 E precoTorta > 0.0 E precoBolo > 0.0 então
+  		início
+  			escreva(“Compras – Cliente”,contador,”Qtd de Trufa:”,quilosTrufa,”kg – Valor:”,precoTrufa,”reais - Qtd de Torta:”,quilosTorta,”kg – Valor:”,precoTorta,”reais - Qtd de Bolo:”,quilosBolo,”kg – Valor:”,precoBolo,”reais – Valor total a ser pago:”, precoFinal,”reais.” );
+  		fim
+  		senão
+  		início
+  			se precoTrufa > 0.0 E precoTorta > 0.0 então
+  			início
+  				escreva(“Compras – Cliente”,contador,”Qtd de Trufa:”,quilosTrufa,”kg – Valor:”,precoTrufa,”reais - Qtd de Torta:”,quilosTorta,”kg – Valor:”,precoTorta,”reais - Valor total a ser pago:”, precoFinal,”reais.” );
+  
+  			fim 
+  			senão
+  			início
+  				se precoTrufa > 0.0 precoBolo > 0.0 então
+  				início
+  					escreva(“Compras – Cliente”,contador,”Qtd de Trufa:”,quilosTrufa,”kg – Valor:”,precoTrufa,”reais - Qtd de Bolo:”,quilosBolo,”kg – Valor:”,precoBolo,”reais – Valor total a ser pago:”, precoFinal,”reais.” );
+  
+  				fim
+  				senão
+  				início
+  					se precoTorta > 0.0 E precoBolo > 0.0 então
+  					início
+  						escreva(“Compras – Cliente”,contador,”Qtd de Torta:”,quilosTorta,”kg – Valor:”,precoTorta,”reais - Qtd de Bolo:”,quilosBolo,”kg – Valor:”,precoBolo,”reais – Valor total a ser pago:”, precoFinal,”reais.” );
+  
+  					fim
+  					senão
+  					início
+  						se precoTorta = 0.0 E precoBolo = 0.0 então
+  						início
+  							escreva(“Compras – Cliente”,contador,”Qtd de Trufa:”,quilosTrufa,”kg – Valor:”,precoTrufa,”reais - Valor total a ser pago:”, precoFinal,”reais.” );
+  
+  						fim
+  						senão
+  						início
+  							se precoTrufa = 0.0 E precoBolo = 0.0 então
+  							início
+  								escreva(“Compras – Cliente”,contador,”Qtd de Torta:”,quilosTorta,”kg – Valor:”,precoTorta,”reais - Valor total a ser pago:”, precoFinal,”reais.” );
+  
+  							fim
+  							senão
+  							início
+  								escreva(“Compras – Cliente”,contador,”Qtd de Bolo:”,quilosBolo,”kg – Valor:”,precoBolo,”reais – Valor total a ser pago:”, precoFinal,”reais.” );
+  
+  							fim se;
+  						fim se;
+  					fim se;
+  				fim se;
+  			fim se;
+  		fim se;
+  	fim para;
+  Fim.
+  ```
+  
+  
+  
   
